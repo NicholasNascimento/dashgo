@@ -15,6 +15,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import { useEffect } from "react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
 import { Header } from "../../components/Header";
@@ -25,6 +26,12 @@ export default function UserList() {
   const isWideVersion = useBreakpointValue({
     base: false,
     lg: true,
+  });
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/users")
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   });
 
   return (
@@ -59,7 +66,7 @@ export default function UserList() {
                 <Th px={["4", "4", "6"]} color="gray.300" width="8">
                   <Checkbox colorScheme="pink" />
                 </Th>
-                { isWideVersion && <Th>Usuário</Th> }
+                {isWideVersion && <Th>Usuário</Th>}
                 <Th>Data de cadastro</Th>
                 <Th width="8">Data de cadastro</Th>
               </Tr>
@@ -77,7 +84,7 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                { isWideVersion && <Td>04 de Abril, 2021</Td> }
+                {isWideVersion && <Td>04 de Abril, 2021</Td>}
                 <Td>
                   <Button
                     as="a"
@@ -86,7 +93,7 @@ export default function UserList() {
                     colorScheme="purple"
                     leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
                   >
-                    { isWideVersion ? 'Editar' : '' }
+                    {isWideVersion ? "Editar" : ""}
                   </Button>
                 </Td>
               </Tr>
@@ -102,7 +109,7 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                { isWideVersion && <Td>04 de Abril, 2021</Td> }
+                {isWideVersion && <Td>04 de Abril, 2021</Td>}
                 <Td>
                   <Button
                     as="a"
@@ -111,7 +118,7 @@ export default function UserList() {
                     colorScheme="purple"
                     leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
                   >
-                    { isWideVersion ? 'Editar' : '' }
+                    {isWideVersion ? "Editar" : ""}
                   </Button>
                 </Td>
               </Tr>
@@ -127,7 +134,7 @@ export default function UserList() {
                     </Text>
                   </Box>
                 </Td>
-                { isWideVersion && <Td>04 de Abril, 2021</Td> }
+                {isWideVersion && <Td>04 de Abril, 2021</Td>}
                 <Td>
                   <Button
                     as="a"
@@ -136,7 +143,7 @@ export default function UserList() {
                     colorScheme="purple"
                     leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
                   >
-                    { isWideVersion ? 'Editar' : '' }
+                    {isWideVersion ? "Editar" : ""}
                   </Button>
                 </Td>
               </Tr>
